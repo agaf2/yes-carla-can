@@ -1,5 +1,29 @@
 #!/bin/bash
 
+usage() {
+    cat <<EOF
+Usage: $0 [-h|--help]
+
+Tear down the "Yes, CARLA CAN" simulation environment.
+
+What this script does:
+  1. Stops the vehicle controls module
+  2. Stops the CARLA client module (waits up to 10 seconds for a clean exit)
+  3. Stops the CARLA simulator
+  4. Removes the virtual CAN bus (vcan0) and unloads the vcan kernel module
+
+Options:
+  -h, --help    Show this help message and exit
+EOF
+}
+
+for arg in "$@"; do
+    case "$arg" in
+        -h|--help) usage; exit 0 ;;
+        *) echo "Unknown argument: $arg"; usage; exit 1 ;;
+    esac
+done
+
 # Stop vehicle controls module
 echo "Stopping vehicle controls module..."
 VEHICLE_CONTROLS_PID=$(pgrep -d ' ' -f "vehicle_controls_module.py")
