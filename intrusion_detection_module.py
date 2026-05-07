@@ -2,7 +2,7 @@ import argparse
 import can
 from pathlib import Path
 from defense.id_time_intrusion_detection import IdTimeIntrusionDetection
-from can_network import VCAN_CHANNEL
+from can_network import VCAN_CHANNEL, CAN_INTERFACE
 
 DETECTOR_FACTORY = {
     "id_time": IdTimeIntrusionDetection
@@ -21,7 +21,7 @@ def main():
 
     selected_detector = DETECTOR_FACTORY[args.detector]()
     selected_detector.load(DATA_PATH)
-    bus = can.interface.Bus(channel=VCAN_CHANNEL, interface='socketcan')
+    bus = can.interface.Bus(channel=VCAN_CHANNEL, interface=CAN_INTERFACE)
 
     try:
         while True:

@@ -5,7 +5,7 @@ from collections import deque
 import can
 import pygame
 
-from can_network.network import VCAN_CHANNEL
+from can_network.network import VCAN_CHANNEL, CAN_INTERFACE
 
 
 class CANTrafficDisplay:
@@ -32,7 +32,7 @@ class CANTrafficDisplay:
         self._bus = None
 
         try:
-            self._bus = can.Bus(interface="socketcan", channel=channel)
+            self._bus = can.Bus(interface=CAN_INTERFACE, channel=channel)
             self._active = True
         except Exception as exc:
             print(f"[CANTrafficDisplay] Could not open {channel}: {exc}")

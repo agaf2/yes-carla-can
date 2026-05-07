@@ -4,6 +4,7 @@ import carla
 from can_network.dbc import load_and_validate, REQUIRED_SIGNALS
 
 VCAN_CHANNEL = "vcan0"
+CAN_INTERFACE = "socketcan"
 
 
 class CAN_Network(object):
@@ -14,7 +15,7 @@ class CAN_Network(object):
 
     def __init__(self, dbc_path="data/carla.dbc", channel=VCAN_CHANNEL):
         self.bus = can.ThreadSafeBus(
-            interface="socketcan", channel=channel, receive_own_messages=True
+            interface=CAN_INTERFACE, channel=channel, receive_own_messages=True
         )
         self.recvd_controls = carla.VehicleControl()
         self.db, self.cycle_times = load_and_validate(dbc_path)
