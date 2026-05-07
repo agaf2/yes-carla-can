@@ -1,12 +1,20 @@
+import argparse
 import pandas as pd
 
-CANDUMP_FILEPATH = "candump-2026-04-17_225932.log"
 
 def main():
+    parser = argparse.ArgumentParser(description="Parse a candump log file into a CSV.")
+    parser.add_argument(
+        "--input",
+        default="candump-2026-04-17_225932.log",
+        help="Path to the candump .log file to parse (default: candump-2026-04-17_225932.log)",
+    )
+    args = parser.parse_args()
+
     print("candump csv parser")
 
     # Open the candump file
-    with open(CANDUMP_FILEPATH, 'r') as file:
+    with open(args.input, 'r') as file:
         lines = file.readlines()
 
     # Parse the lines into a DataFrame
@@ -25,7 +33,7 @@ def main():
     df = pd.DataFrame(data)
 
     # Export to csv
-    filename = CANDUMP_FILEPATH.rsplit('.', 1)[0] + '_parsed'
+    filename = args.input.rsplit('.', 1)[0] + '_parsed'
     df.to_csv(f'{filename}.csv', index=False)
     print(f"candump csv parser finished. Data exported to {filename}.csv")
 
