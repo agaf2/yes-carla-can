@@ -1,0 +1,42 @@
+{
+    "600": {
+        "mean_timestamp_diff": 0.1442338641096906,
+        "std_timestamp_diff": 0.037824814022071156,
+        "msg_type": "sporadic"
+    },
+    "601": {
+        "mean_timestamp_diff": 0.14423390714133658,
+        "std_timestamp_diff": 0.0378264947566384,
+        "msg_type": "sporadic"
+    },
+    "602": {
+        "mean_timestamp_diff": 0.14423393272772067,
+        "std_timestamp_diff": 0.037827695988085275,
+        "msg_type": "sporadic"
+    },
+    "603": {
+        "mean_timestamp_diff": 0.23369053242698548,
+        "std_timestamp_diff": 0.03981006454427117,
+        "msg_type": "sporadic"
+    },
+    "604": {
+        "mean_timestamp_diff": 0.23369053242698548,
+        "std_timestamp_diff": 0.03980721910739065,
+        "msg_type": "sporadic"
+    },
+    "607": {
+        "mean_timestamp_diff": 0.23369062703753274,
+        "std_timestamp_diff": 0.03981071143669537,
+        "msg_type": "sporadic"
+    },
+    "606": {
+        "mean_timestamp_diff": 0.5288795081051914,
+        "std_timestamp_diff": 0.08381583223696373,
+        "msg_type": "sporadic"
+    },
+    "60D": {
+        "mean_timestamp_diff": 0.6153798818588256,
+        "std_timestamp_diff": 0.4760103428606486,
+        "msg_type": "sporadic"
+    }
+}
